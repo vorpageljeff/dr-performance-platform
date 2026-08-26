@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+
+import { PageHeading } from "@/components/portal/page-heading";
+
+export const metadata: Metadata = { title: "Evolução" };
+
+const measures = [{ name: "Peso", initial: "98,0 kg", current: "95,6 kg", change: "−2,4 kg" },{ name: "Cintura", initial: "104 cm", current: "100 cm", change: "−4 cm" },{ name: "Abdômen", initial: "107 cm", current: "103 cm", change: "−4 cm" },{ name: "Quadril", initial: "106 cm", current: "105 cm", change: "−1 cm" }];
+
+export default function ProgressPage() {
+  return <><PageHeading eyebrow="Ciclo atual • 20 jul. a 20 ago." title="Sua evolução" description="Compare medidas, frequência e consistência. Resultados corporais variam e devem ser interpretados junto com o contexto do ciclo." action={<button className="app-secondary-button" disabled type="button">Baixar relatório em breve</button>} /><section className="progress-hero app-card app-card--dark"><div><span className="app-card__kicker">Resumo do período</span><h2>Consistência produz contexto.</h2><p>Você realizou 14 dos 16 treinos previstos e manteve uma frequência média de 3,5 treinos por semana.</p></div><div className="progress-hero__score"><strong>88<small>%</small></strong><span>aderência ao plano</span></div></section><section className="measure-grid">{measures.map((measure) => <article className="app-card" key={measure.name}><span>{measure.name}</span><div><small>Inicial<strong>{measure.initial}</strong></small><b>→</b><small>Atual<strong>{measure.current}</strong></small></div><em>{measure.change}</em></article>)}</section><section className="app-card timeline-card"><div className="app-card__top"><div><span className="app-card__kicker">Histórico mensal</span><h2>Registros do ciclo</h2></div><span className="status-pill">Em evolução</span></div><ol><li><time>20 jul.</time><div><strong>Avaliação inicial concluída</strong><p>Medidas, questionário e fotografias opcionais registrados.</p></div></li><li><time>24 jul.</time><div><strong>Primeiro treino concluído</strong><p>Ciclo de adaptação iniciado com registro completo.</p></div></li><li><time>20 ago.</time><div><strong>Primeira análise mensal</strong><p>Boa aderência. Plano atualizado para a versão 3.</p></div></li></ol></section></>;
+}

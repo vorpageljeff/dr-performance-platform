@@ -1,0 +1,28 @@
+{
+  "name": "dr-performance-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plataforma de acompanhamento da assessoria DR Performance.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "dev:web": "npm run build -w @dr-performance/contracts && npm run dev -w @dr-performance/web",
+    "dev:api": "npm run build -w @dr-performance/contracts && npm run dev -w @dr-performance/api",
+    "build": "npm run build -w @dr-performance/contracts && npm run build -w @dr-performance/api && npm run build -w @dr-performance/web",
+    "build:web": "npm run build -w @dr-performance/contracts && npm run build -w @dr-performance/web",
+    "build:api": "npm run build -w @dr-performance/contracts && npm run build -w @dr-performance/api",
+    "lint": "npm run build -w @dr-performance/contracts && npm run lint --workspaces --if-present",
+    "typecheck": "npm run build -w @dr-performance/contracts && npm run typecheck --workspaces --if-present",
+    "test": "npm run build -w @dr-performance/contracts && npm run test --workspaces --if-present",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "db:generate": "npm run db:generate -w @dr-performance/api",
+    "db:validate": "npm run db:validate -w @dr-performance/api",
+    "db:migrate": "npm run db:migrate -w @dr-performance/api",
+    "db:seed": "npm run db:seed -w @dr-performance/api"
+  }
+}

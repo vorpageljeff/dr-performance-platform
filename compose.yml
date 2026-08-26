@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: dr_performance
+      POSTGRES_USER: dr_performance
+      POSTGRES_PASSWORD: dr_performance
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dr_performance -d dr_performance"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - dr_performance_postgres:/var/lib/postgresql/data
+
+volumes:
+  dr_performance_postgres:

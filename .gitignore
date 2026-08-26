@@ -1,0 +1,29 @@
+# Dependencies and builds
+node_modules/
+.next/
+dist/
+coverage/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Tooling
+.turbo/
+.vercel/
+.idea/
+.vscode/
+*.log
+*.tsbuildinfo
+
+# Operating systems
+.DS_Store
+Thumbs.db
+
+# Private source material: contains real personal and health-related data
+/a_high_resolution_fitness_report_infographic_das.png
+
+# Original asset kept outside the application tree
+/logo.jpeg
